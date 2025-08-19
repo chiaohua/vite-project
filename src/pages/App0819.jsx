@@ -9,8 +9,8 @@ function MyComponent(props) {
     </>
 
 }
-function MyComponent2(a, b) {
-
+function MyComponent2({ a, b = "我是預設值", c }) {
+    c();
     return <>
         {/* 倆個div要包<> */}
         <div>Hello</div>
@@ -21,8 +21,8 @@ function MyComponent2(a, b) {
 
 const App0819 = () => {
     return (<>
-        <MyComponent a="我是屬性a" b="我是b屬性" />
-        <MyComponent2 a="我是屬性a" b="我是b屬性" />
+        <MyComponent a="我是屬性a" b="我是b屬性" c={() => { console.log("123") }} />
+        <MyComponent2 a="我是屬性a" b="我是b屬性" c={() => { console.log("123") }} />
     </>
     )
 }
