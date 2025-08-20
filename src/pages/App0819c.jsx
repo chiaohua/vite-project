@@ -44,7 +44,13 @@ function App0819c() {
                </div>
                 <div>
 
-                    <img src={arrPhotots[curImg]} alt="" width={420} height={280} style={{ display="none" }}
+                    <img 
+                    id="showPic"
+                    src={arrPhotots[curImg]} 
+                    alt="" 
+                    width={420} 
+                    height={280} 
+                    style={{ display:"none" }}
                     />
                 </div>
             </div>
