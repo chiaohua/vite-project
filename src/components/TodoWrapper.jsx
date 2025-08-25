@@ -39,6 +39,22 @@ const TodoWrapper = () => {
     //檢查被點擊的項目的id是否跟陣列中的id一樣
     //yes=>1.取出todo 2.將isCompleted屬性質反向
     //no=>todo不變
+    const toggleIsEdit = (id)=>{
+        setTodos(todos.map((todo)=>{
+             return todo.id === id
+                ? { ...todo, isEdit: !todo.isEdit }
+                : todo
+        }))
+    }
+
+    //建立切換isEdit的屬性函式
+    const editTodo = (id,editContent) =>{
+        setTodos(todos.map((todo)=>{
+            return todo.id === id
+            ?{...todo,content:editContent,isEdit:false}
+            :todo
+        }))
+    }
 
     return (
         <div className='wrapper'>
@@ -59,7 +75,11 @@ const TodoWrapper = () => {
 
             {
                 todos.map((todo) => {
-                    return <Todo todo={todo} key={todo.id} delTodo={delTodo} toggleCompleted={toggleCompleted}/>
+                    return <Todo todo={todo} key={todo.id}
+                     delTodo={delTodo} 
+                     toggleCompleted={toggleCompleted}
+                     toggleIsEdit={toggleIsEdit}
+                     editTodo={editTodo} />
                 })
             }
 
